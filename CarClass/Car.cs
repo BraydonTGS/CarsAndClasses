@@ -6,16 +6,17 @@ namespace CarClass
 {
     public class Car
     {
-        private string Model;
         private string Make;
+        private string Model;
         private int Year;
         private int Miles;
         private string CarColor;
         private bool NeedsGas;
         private ConsoleColor Color = ConsoleColor.Green;
 
-        public Car(string model, string make, int year, int miles, string carColor)
+        public Car(string make, string model, int year, int miles, string carColor)
         {
+            Make = make;
             Model = model;
             Make = make;
             Year = year;

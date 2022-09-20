@@ -25,11 +25,10 @@ namespace CarClass
             {
                 if (car.GetModel() == userResponse)
                 {
-                    WriteLine("We have a match!");
+                    car.DisplayCar();
+
                 }
             }
-
-
 
             ReadLine();
         }
