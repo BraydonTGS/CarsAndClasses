@@ -1,3 +1,5 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿using CarClass;
+using static System.Console;
+Title = "My Cars";
+World.Run();
 
