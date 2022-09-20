@@ -27,6 +27,9 @@ namespace CarClass
                     DisplayCars(garage);
                     break;
                 case "3":
+                    Spin(garage);
+                    break;
+                case "4":
                     Exit();
                     break;
                 default:
@@ -51,9 +54,16 @@ namespace CarClass
                 Printing.InvalidSelection();
                 AddCar(garage);
             }
+            Write("\n> Please Enter the Number of Miles: ");
+            bool parse2 = int.TryParse(ReadLine(), out int miles);
+            if (!parse2)
+            {
+                Printing.InvalidSelection();
+                AddCar(garage);
+            }
             Write("\n> Please Enter the Color: ");
             string color = ReadLine().Trim().ToLower();
-            Car newCar = new Car(make, model, year, color);
+            Car newCar = new Car(make, model, year, miles, color);
             garage.AddCarToGarage(newCar);
             Thread.Sleep(1500);
             newCar.DisplayCar();
@@ -67,9 +77,14 @@ namespace CarClass
             Printing.Title();
             Printing.PrintCarTwo();
             garage.DisplayCars();
-            Write("> Press Enter to go back: ");
+            Write("\n> Press Enter to go back: ");
             ReadKey();
             Selection(garage);
+        }
+
+        public static void Spin(Garage garage)
+        {
+            garage.PickCar();
         }
 
         public static void Exit()

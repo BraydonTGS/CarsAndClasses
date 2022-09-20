@@ -20,7 +20,8 @@ namespace CarClass
             WriteLine(">Please Select From the Following Options: ");
             WriteLine("\n>1. Add a new Car: ");
             WriteLine(">2. Display your Cars: ");
-            WriteLine(">3. Exit");
+            WriteLine(">3. Go for a Spin: ");
+            WriteLine(">4. Exit");
         }
 
         public static void InvalidSelection()

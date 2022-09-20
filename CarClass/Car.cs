@@ -9,16 +9,25 @@ namespace CarClass
         private string Model;
         private string Make;
         private int Year;
+        private int Miles;
         private string CarColor;
+        private bool NeedsGas;
         private ConsoleColor Color = ConsoleColor.Green;
 
-        public Car(string model, string make, int year, string carColor)
+        public Car(string model, string make, int year, int miles, string carColor)
         {
             Model = model;
             Make = make;
             Year = year;
+            Miles = miles;
             CarColor = carColor;
+            NeedsGas = true;
             //Color = color;
+        }
+
+        public string GetModel()
+        {
+            return Model;
         }
 
         public void DisplayCar()
@@ -28,8 +37,19 @@ namespace CarClass
             WriteLine($"\n> Model: {Model}");
             WriteLine($"> Make: {Make}");
             WriteLine($"> Year: {Year}");
+            WriteLine($"> Miles: {Miles}");
             WriteLine($"> Color: {CarColor}");
             ForegroundColor = prevColor;
+        }
+
+        public void Drive()
+        {
+
+        }
+
+        public void GetGas()
+        {
+
         }
     }
 }

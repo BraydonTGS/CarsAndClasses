@@ -1,4 +1,5 @@
 ﻿using System;
+using static System.Console;
 namespace CarClass
 {
     public class Garage
@@ -16,11 +17,28 @@ namespace CarClass
             myCars.Add(newCar);
         }
 
+        public void PickCar()
+        {
+            Write("Please Enter the Model you want to drive: ");
+            string userResponse = Console.ReadLine().Trim();
+            foreach (var car in myCars)
+            {
+                if (car.GetModel() == userResponse)
+                {
+                    WriteLine("We have a match!");
+                }
+            }
+
+
+
+            ReadLine();
+        }
+
         public void DisplayCars()
         {
             if (myCars.Count == 0)
             {
-                Console.WriteLine("The Garage is Empty... Please Add a Car!!! ");
+                WriteLine("> The Garage is Empty... Please Add a Car!!! ");
             }
             else
             {
@@ -31,7 +49,6 @@ namespace CarClass
             }
 
         }
-
 
     }
 }
