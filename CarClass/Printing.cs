@@ -6,6 +6,7 @@ namespace CarClass
     {
         public static void Title()
         {
+            Clear();
             WriteLine(@" +-+-+-+-+-+ +-+ +-+-+-+-+-+-+
  |B|u|i|l|d| |a| |G|a|r|a|g|e|
  +-+-+-+-+-+ +-+ +-+-+-+-+-+-+");
@@ -16,11 +17,20 @@ namespace CarClass
         {
             Clear();
             Title();
-            WriteLine("\n>Please Select From the Following Options: ");
+            WriteLine(">Please Select From the Following Options: ");
             WriteLine("\n>1. Add a new Car: ");
             WriteLine(">2. Display your Cars: ");
             WriteLine(">3. Exit");
         }
+
+        public static void InvalidSelection()
+        {
+            Printing.Title();
+            WriteLine("\nPlesase Enter a Valid Selection! ");
+            Write("\nPress Enter to Continue. ");
+            ReadKey();
+        }
+
         public static void PrintCar()
         {
             WriteLine(@"              ____----------- _____
@@ -38,7 +48,7 @@ namespace CarClass
                           ~-_/_/                  ~~ ~~");
             WriteLine();
             WriteLine(@"");
-            ReadKey();
+
         }
     }
 }
