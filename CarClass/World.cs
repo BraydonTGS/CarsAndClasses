@@ -64,18 +64,19 @@ namespace CarClass
 
         public static void DisplayCars(Garage garage)
         {
-
+            Printing.Title();
+            Printing.PrintCarTwo();
             garage.DisplayCars();
             Write("> Press Enter to go back: ");
             ReadKey();
             Selection(garage);
-
         }
 
         public static void Exit()
         {
             Environment.Exit(0);
         }
+
         public static void Error(Garage garage)
         {
             Printing.InvalidSelection();
