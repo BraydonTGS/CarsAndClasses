@@ -17,11 +17,25 @@ namespace CarClass
         {
             Clear();
             Title();
+            PrintCarThree();
             WriteLine(">Please Select From the Following Options: ");
             WriteLine("\n>1. Add a new Car: ");
             WriteLine(">2. Display your Cars: ");
             WriteLine(">3. Go for a Spin: ");
             WriteLine(">4. Exit");
+        }
+
+        public static void TripSelection()
+        {
+            Clear();
+            Title();
+            PrintCarFour();
+            WriteLine(">Please Select From the Following Options: ");
+            WriteLine("\n>1. The Beach: ");
+            WriteLine(">2. The Mountains: ");
+            WriteLine(">3. The Desert: ");
+            WriteLine(">4. Go Back");
+            ReadKey();
         }
 
         public static void InvalidSelection()
@@ -70,6 +84,35 @@ namespace CarClass
   LGB    '-.m.-'                               '-.m.-'");
             WriteLine();
         }
+
+        public static void PrintCarThree()
+        {
+            WriteLine(@"   ---------------------------.
+ `/""""/""""/|""|'|""||""|   ' \.
+ /    /    / |__| |__||__|      |
+/----------=====================|
+| \  /V\  /    _.               |
+|()\ \W/ /()   _            _   |
+|   \   /     / \          / \  |-( )
+=C========C==_| ) |--------| ) _/==] _-{_}_)
+ \_\_/__..  \_\_/_ \_\_/ \_\_/__.__.
+--TIM--");
+            WriteLine();
+        }
+
+        public static void PrintCarFour()
+        {
+            WriteLine(@"                                  @
+               (__)    (__) _____/
+            /| (oo) _  (oo)/----/_____    *
+  _o\______/_|\_\/_/_|__\/|____|//////== *- *  * -
+ /_________   \   00 |   00 |       /== -* * -
+[_____/^^\_____\_____|_____/^^\_____]     *- * -
+      \__/                 \__/");
+            WriteLine();
+        }
+
+
     }
 }
 

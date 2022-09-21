@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using static System.Console;
 namespace CarClass
 {
@@ -8,6 +9,7 @@ namespace CarClass
         public static void Start()
         {
             Printing.Title();
+            Printing.PrintCarThree();
             Garage myGarage = new Garage();
             Write("> Press Any Key to Continue: ");
             ReadLine();
@@ -27,7 +29,7 @@ namespace CarClass
                     DisplayCars(garage);
                     break;
                 case "3":
-                    Spin(garage);
+                    SelectCar(garage);
                     break;
                 case "4":
                     Exit();
@@ -42,7 +44,8 @@ namespace CarClass
         public static void AddCar(Garage garage)
         {
             Printing.Title();
-            Printing.PrintCar();
+            Printing.PrintCarTwo();
+
             Write("> Please Enter the Make: ");
             string make = ReadLine().Trim();
             Write("\n> Please Enter the Model: ");
@@ -62,7 +65,7 @@ namespace CarClass
                 AddCar(garage);
             }
             Write("\n> Please Enter the Color: ");
-            string color = ReadLine().Trim().ToLower();
+            string color = ReadLine().Trim();
             Car newCar = new Car(make, model, year, miles, color);
             garage.AddCarToGarage(newCar);
             Thread.Sleep(1500);
@@ -75,16 +78,42 @@ namespace CarClass
         public static void DisplayCars(Garage garage)
         {
             Printing.Title();
-            Printing.PrintCarTwo();
+            WriteLine("\n> In the Garage: ");
             garage.DisplayCars();
             Write("\n> Press Enter to go back: ");
             ReadKey();
             Selection(garage);
         }
 
-        public static void Spin(Garage garage)
+        public static void SelectCar(Garage garage)
         {
-            garage.PickCar();
+            var selectedCar = garage.PickCar(garage);
+            Printing.Title();
+            Thread.Sleep(1500);
+            Spin(selectedCar, garage);
+        }
+
+        public static void Spin(Car myCar, Garage garage)
+        {
+            Printing.Title();
+            myCar.DisplayCar();
+            Write($"\n>You want to take out the {myCar.GetColor()}, {myCar.GetMake()}:{myCar.GetModel()}? (Y/N) ");
+            string userSelection = ReadLine().Trim().ToUpper();
+            switch (userSelection)
+            {
+                case "Y":
+                    Printing.TripSelection();
+                    break;
+                case "N":
+                    Selection(garage);
+                    break;
+                default:
+                    Printing.InvalidSelection();
+                    Spin(myCar, garage);
+                    break;
+            }
+            ReadKey();
+
         }
 
         public static void Exit()

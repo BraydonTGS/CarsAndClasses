@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Runtime.ConstrainedExecution;
 using static System.Console;
 namespace CarClass
 {
@@ -17,20 +19,34 @@ namespace CarClass
             myCars.Add(newCar);
         }
 
-        public void PickCar()
+        public Car PickCar(Garage garage)
         {
-            Write("Please Enter the Model you want to drive: ");
+            Printing.Title();
+            Write("> Please Enter the Model you want to drive: ");
             string userResponse = Console.ReadLine().Trim();
-            foreach (var car in myCars)
-            {
-                if (car.GetModel() == userResponse)
-                {
-                    car.DisplayCar();
 
+            if (myCars.Count == 0)
+            {
+                Write("\n> The Garage is Empty... Please Add a Car!!! ");
+                ReadLine();
+                World.Selection(garage);
+            }
+            else
+            {
+                for (int i = 0; i < myCars.Count; i++)
+                {
+                    if (myCars[i].GetModel() == userResponse)
+                    {
+                        Car selectedCar = myCars[i];
+                        return selectedCar;
+                    }
                 }
             }
 
-            ReadLine();
+            Write("\n> That car was not found! Please Try again");
+            ReadKey();
+            return PickCar(garage);
+
         }
 
         public void DisplayCars()
@@ -44,6 +60,7 @@ namespace CarClass
                 foreach (var cars in myCars)
                 {
                     cars.DisplayCar();
+                    Thread.Sleep(500);
                 }
             }
 
