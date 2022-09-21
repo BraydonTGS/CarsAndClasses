@@ -78,7 +78,7 @@ namespace CarClass
         public static void DisplayCars(Garage garage)
         {
             Printing.Title();
-            WriteLine("\n> In the Garage: ");
+            WriteLine("> In the Garage: ");
             garage.DisplayCars();
             Write("\n> Press Enter to go back: ");
             ReadKey();
@@ -96,6 +96,7 @@ namespace CarClass
         public static void Spin(Car myCar, Garage garage)
         {
             Printing.Title();
+            Printing.PrintCarThree();
             myCar.DisplayCar();
             Write($"\n>You want to take out the {myCar.GetColor()}, {myCar.GetMake()}:{myCar.GetModel()}? (Y/N) ");
             string userSelection = ReadLine().Trim().ToUpper();

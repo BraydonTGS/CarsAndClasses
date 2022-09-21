@@ -53,7 +53,7 @@ namespace CarClass
         {
             if (myCars.Count == 0)
             {
-                WriteLine("> The Garage is Empty... Please Add a Car!!! ");
+                WriteLine("\n> The Garage is Empty... Please Add a Car!!! ");
             }
             else
             {
