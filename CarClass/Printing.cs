@@ -21,21 +21,22 @@ namespace CarClass
             WriteLine(">Please Select From the Following Options: ");
             WriteLine("\n>1. Add a new Car: ");
             WriteLine(">2. Display your Cars: ");
-            WriteLine(">3. Go for a Spin: ");
+            WriteLine(">3. Take out a Car: ");
             WriteLine(">4. Exit");
         }
 
-        public static void TripSelection()
+        public static void CarOptions()
         {
             Clear();
             Title();
             PrintCarFour();
             WriteLine(">Please Select From the Following Options: ");
-            WriteLine("\n>1. The Beach: ");
-            WriteLine(">2. The Mountains: ");
-            WriteLine(">3. The Desert: ");
-            WriteLine(">4. Go Back");
-            ReadKey();
+            WriteLine("\n>1. Wash Your Car: ");
+            WriteLine(">2. Get Some Gas: ");
+            WriteLine(">3. Drive to the Mountains: ");
+            WriteLine(">4. Put Back in Garage: ");
+            WriteLine(">5. Go Back");
+
         }
 
         public static void InvalidSelection()

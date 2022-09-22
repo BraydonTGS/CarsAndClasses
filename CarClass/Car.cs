@@ -23,7 +23,7 @@ namespace CarClass
             Year = year;
             Miles = miles;
             CarColor = carColor;
-            NeedsGas = true;
+            NeedsGas = false;
             IsDirty = false;
         }
 
@@ -40,7 +40,6 @@ namespace CarClass
             return CarColor;
         }
 
-
         public void DisplayCar()
         {
             ConsoleColor prevColor = ForegroundColor;
@@ -55,13 +54,72 @@ namespace CarClass
             ForegroundColor = prevColor;
         }
 
+        public void Wash()
+        {
+            if (IsDirty)
+            {
+                WriteLine("\n> Your car is spotless now...");
+                ReadKey();
+                IsDirty = false;
+            }
+            else
+            {
+                WriteLine("\n> Your car is already clean! ");
+                ReadKey();
+            }
+
+        }
+
         public void Drive()
         {
+            if (!NeedsGas)
+            {
+                WriteLine("\n>What a beautiful drive to the mountains! ");
+                WriteLine("\n>The car is filthy now! ");
+                ReadKey();
+                NeedsGas = true;
+                IsDirty = true;
+            }
+            else
+            {
+                WriteLine("\n>The car is out of gas. You need to fill up first! ");
+            }
 
         }
 
         public void GetGas()
         {
+            if (NeedsGas)
+            {
+                WriteLine("\n>Dang! Gas is expensive... but you have a full tank now.");
+                ReadKey();
+                NeedsGas = false;
+            }
+            else
+            {
+                WriteLine("\n> You already have a full tank!!!");
+                ReadKey();
+            }
+        }
+
+        public void Park(Car car, Garage garage)
+        {
+            if (!NeedsGas && !IsDirty)
+            {
+                WriteLine("\n> You put the car back in the garage! ");
+                ReadKey();
+                World.DisplayCars(garage);
+            }
+            else if (IsDirty)
+            {
+                WriteLine("\n> You can't put the car away when it is dirty! ");
+                ReadKey();
+            }
+            else if (NeedsGas)
+            {
+                WriteLine("\n> Please fill up your tank first! ");
+                ReadKey();
+            }
 
         }
     }

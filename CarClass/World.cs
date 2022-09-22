@@ -90,10 +90,10 @@ namespace CarClass
             var selectedCar = garage.PickCar(garage);
             Printing.Title();
             Thread.Sleep(1500);
-            Spin(selectedCar, garage);
+            DecideToDrive(selectedCar, garage);
         }
 
-        public static void Spin(Car myCar, Garage garage)
+        public static void DecideToDrive(Car myCar, Garage garage)
         {
             Printing.Title();
             Printing.PrintCarThree();
@@ -103,18 +103,49 @@ namespace CarClass
             switch (userSelection)
             {
                 case "Y":
-                    Printing.TripSelection();
+                    CarOutOfGarage(myCar, garage);
                     break;
                 case "N":
                     Selection(garage);
                     break;
                 default:
                     Printing.InvalidSelection();
-                    Spin(myCar, garage);
+                    DecideToDrive(myCar, garage);
                     break;
             }
             ReadKey();
 
+        }
+
+        public static void CarOutOfGarage(Car myCar, Garage garage)
+        {
+            Printing.CarOptions();
+            string userResponse = ReadLine().Trim();
+            switch (userResponse)
+            {
+                case "1":
+                    myCar.Wash();
+                    CarOutOfGarage(myCar, garage);
+                    break;
+                case "2":
+                    myCar.GetGas();
+                    CarOutOfGarage(myCar, garage);
+                    break;
+                case "3":
+                    myCar.Drive();
+                    CarOutOfGarage(myCar, garage);
+                    break;
+                case "4":
+                    myCar.Park(myCar, garage);
+                    CarOutOfGarage(myCar, garage);
+                    break;
+                case "5":
+                    Selection(garage);
+                    break;
+                default:
+                    Error(garage);
+                    break;
+            }
         }
 
         public static void Exit()
