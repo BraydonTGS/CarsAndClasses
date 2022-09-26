@@ -25,6 +25,7 @@ namespace CarClass
             CarColor = carColor;
             NeedsGas = false;
             IsDirty = false;
+            // I can add the car from the list here //
         }
 
         public string GetModel()

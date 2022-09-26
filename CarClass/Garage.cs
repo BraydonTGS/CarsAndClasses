@@ -8,6 +8,8 @@ namespace CarClass
     {
         private List<Car> myCars;
 
+        protected static int NumberOfCars;
+
         public Garage()
         {
             myCars = new List<Car>();
@@ -17,6 +19,7 @@ namespace CarClass
         public void AddCarToGarage(Car newCar)
         {
             myCars.Add(newCar);
+            NumberOfCars++;
         }
 
         public Car PickCar(Garage garage)
